@@ -132,3 +132,59 @@ Optional<T> min(Comparator<? super T> comparator);
 > 반면 sorted나 distinct 같은 연산은 스트림의 요소를 정렬하거나 중복을 제거하기 위해 과거의 이력을 알고 있어야 한다. 예를 들어 어떤 요소를 출력 스트림으로 추가하려면 <strong>모든 요소가 버퍼에 추가되어 있어야 한다</strong>. 따라서 데이터 스트림의 크기가 크거나 무한이라면 문제가 생길 수 있다. 이러한 연산을 <strong>내부 상태를 갖는 연산(stateful operation)</strong>이라 한다.
 
 ***
+
+## 6. 숫자형 스트림
+
+스트림 API는 숫자 스트림을 효율적으로 처리할 수 있도록 기본형 특화 스트림(primitive stream specialization)을 제공한다.
+
+### 기본형 특화 스트림
+
+기본형 특화 스트림으로 `IntStream`, `DoubleStream`, `LongStream`이 존재하며 각각의 인터페이스에는 숫자 스트림의 합계를 계산하는 sum, 최댓값 요소를 검색하는 max 같이 자주 사용하는 숫자 관련 리듀싱 연산 메서드를 제공한다.
+
+### 객체 스트림으로 복원하기
+
+`boxed`메서드를 이용하면 특화 스트림을 일반 스트림으로 변환할 수 있다.
+
+```java
+Stream<Integer> boxed(); // in IntStream
+```
+
+Optional도 기본형에 대하여 지원한다. `OptionalInt`, `OptionalDouble`, `optionalLong` 세 가지 기본형 특화 스트림 버전의 Optional이 제공된다.
+
+### 숫자 범위
+
+특정 범위의 숫자를 이용해야 할 때 `range`와 `rangeClosed` 메서드를 사용할 수 있다. 이는 IntStream, LongStream 두 기본형 특화 스트림에서 지원된다. range는 열린 구간을 의미하며, rangeClosed는 닫힌 구간을 의미한다.
+
+## 7. 스트림 만들기
+
+### 값으로 스트림 만들기
+
+정적 메서드 `Stream.of` 을 이용하여 스트림을 만들 수 있다.
+
+### null이 될 수 있는 객체로 스트림 만들기
+
+자바 9부터 지원되며 `Stream.ofNullable` 메서드를 이용하여 null이 될 수 있는 객체를 지원하는 스트림을 만들 수 있다.
+
+### 배열로 스트림 만들기
+
+배열을 인수로 받는 정적 메서드 `Arrays.stream` 을 이용하여 스트림을 만들 수 있다.
+
+### 파일로 스트림 만들기
+
+파일을 처리하는 등의 I/O 연산에 사용하는 자바의 NIO API(비블록 I/O)도 스트림 API를 활용할 수 있도록 업데이트되었다. java.nio.file.Files의 많은 정적 메서드가 스트림을 반환한다. 예를 들어 `Files.lines`는 주어진 파일의 행 스트림을 문자열로 반환한다.
+
+### 함수로 무한 스트림 만들기
+
+Stream.iterate와 Stream.generate를 통해 함수를 이용하여 무한 스트림을 만들 수 있다. iterate와 generate에서 만든 스트림은 요청할 때마다 주어진 함수를 이용해서 값을 만든다. 따라서 무제한으로 값을 계산할 수 있지만, 보통 무한한 값을 출력하지 않도록  limit(n) 함수를 함께 연결해서 사용한다.
+
+- Stream.iterate
+
+```java
+public static<T> Stream<T> iterate(final T seed, final UnaryOperator<T> f)
+```
+
+- Stream.generate
+
+```java
+public static<T> Stream<T> generate(Supplier<T> s)
+```
