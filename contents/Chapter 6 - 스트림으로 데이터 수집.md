@@ -38,13 +38,14 @@ collect 메서드는 도출하려는 결과를 누적하는 컨테이너를 바�
 ```java
 // 분할 함수
 public static <T, K> Collector<T, ?, Map<K, List<T>>> groupingBy(
-		Function<? super T, ? extends K> classifier) {
+    Function<? super T, ? extends K> classifier) {
 
     return groupingBy(classifier, toList());
 }
+
 // 분할 함수, 감싸인 컬렉터
 public static <T, K, A, D> Collector<T, ?, Map<K, D>> groupingBy(
-		Function<? super T, ? extends K> classifier,
+    Function<? super T, ? extends K> classifier,
     Collector<? super T, A, D> downstream) {
 
     return groupingBy(classifier, HashMap::new, downstream);
@@ -52,7 +53,7 @@ public static <T, K, A, D> Collector<T, ?, Map<K, D>> groupingBy(
 
 // 분할 함수, 반환 타입, 감싸인 컬렉터
 public static <T, K, D, A, M extends Map<K, D>> Collector<T, ?, M> groupingBy(
-		Function<? super T, ? extends K> classifier,
+    Function<? super T, ? extends K> classifier,
     Supplier<M> mapFactory,
     Collector<? super T, A, D> downstream) {
   // ...
@@ -63,11 +64,11 @@ public static <T, K, D, A, M extends Map<K, D>> Collector<T, ?, M> groupingBy(
 
 ```java
 Map<Dish.Type, Dish> mostCaloricByType = 
-		menu.stream()
-				.collect(groupingBy(Dish::Type, // 분류 함수
-								collectingAndThen(
-										maxBy(comparingInt(Dish::getCalories)), // 감싸인 컬렉터
-								Optional::get)); // 변환 함수
+    menu.stream()
+        .collect(groupingBy(Dish::Type, // 분류 함수
+                collectingAndThen(
+                    maxBy(comparingInt(Dish::getCalories)), // 감싸인 컬렉터
+                Optional::get)); // 변환 함수
 ```
 
 컬렉터를 중첩할 시 가장 외부 계층에서 안쪽으로 다음과 같은 작업이 수행된다.
@@ -85,11 +86,9 @@ Map<Dish.Type, Dish> mostCaloricByType =
 분할의 장점은 참, 거짓 두 가지 요소의 스트림 리스트를 모두 유지한다는 것이 장점이다.
 
 ```java
-public static <T> Collector<T, ?, Map<Boolean, List<T>>> partitioningBy(
-	Predicate<? super T> predicate) 
+public static <T> Collector<T, ?, Map<Boolean, List<T>>> partitioningBy(Predicate<? super T> predicate) 
 
-public static <T, D, A> Collector<T, ?, Map<Boolean, D>> partitioningBy(
-	Predicate<? super T> predicate, Collector<? super T, A, D> downstream)
+public static <T, D, A> Collector<T, ?, Map<Boolean, D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T, A, D> downstream)
 ```
 
 ## Collector 인터페이스
@@ -138,10 +137,10 @@ characteristics 메서드는 컬렉터의 연산을 정의하는 Characteristics
 
 ```java
 enum Characteristics {
-        CONCURRENT,
-        UNORDERED,
-        IDENTITY_FINISH
-    }
+    CONCURRENT,
+    UNORDERED,
+    IDENTITY_FINISH
+}
 ```
 
 - **UNORDERED** : 리듀싱 결과는 스트림 요소의 방문 순서나 누적 순서에 영향을 받지 않는다.
