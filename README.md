@@ -18,6 +18,6 @@
 
 ### Part Ⅲ 스트림과 람다를 이용한 효과적 프로그래밍
 
-* [Chapter 8 - 컬렉션 API 개선]()
+* [Chapter 8 - 컬렉션 API 개선](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%208%20-%20%EC%BB%AC%EB%A0%89%EC%85%98%20API%20%EA%B0%9C%EC%84%A0.md)
 * [Chapter 9 - 리팩터링, 테스팅, 디버깅]()
 * [Chatper 10 - 람다를 이용한 도메인 전용 언어]()
