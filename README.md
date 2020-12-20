@@ -20,4 +20,4 @@
 
 * [Chapter 8 - 컬렉션 API 개선](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%208%20-%20%EC%BB%AC%EB%A0%89%EC%85%98%20API%20%EA%B0%9C%EC%84%A0.md)
 * [Chapter 9 - 리팩터링, 테스팅, 디버깅](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%209%20-%20%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81%2C%20%ED%85%8C%EC%8A%A4%ED%8C%85%2C%20%EB%94%94%EB%B2%84%EA%B9%85.md)
-* [Chatper 10 - 람다를 이용한 도메인 전용 언어]()
+* [Chatper 10 - 람다를 이용한 도메인 전용 언어](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%2010%20-%20%EB%9E%8C%EB%8B%A4%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%8F%84%EB%A9%94%EC%9D%B8%20%EC%A0%84%EC%9A%A9%20%EC%96%B8%EC%96%B4.md)
