@@ -89,8 +89,8 @@ public class Person {
 ```java
 Stream<Optional<String>> stream = ...;
 Set<String> result = stream.filter(Optional::isPresent)
-												.map(Optional::get)
-												.collect(toSet());
+    .map(Optional::get)
+    .collect(toSet());
 ```
 
 ### 디폴트 액션과 Optional 언랩
