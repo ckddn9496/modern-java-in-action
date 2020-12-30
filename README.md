@@ -36,7 +36,7 @@
 * [Chapter 17 - 리액티브 프로그래밍](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%2017%20-%20%EB%A6%AC%EC%95%A1%ED%8B%B0%EB%B8%8C%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md)
 
 ### Part Ⅵ 함수형 프로그래밍과 자바 진화의 미래
-* [Chapter 18 - 함수형 관점으로 생각하기]()
+* [Chapter 18 - 함수형 관점으로 생각하기](https://github.com/ckddn9496/modern-java-in-action/blob/main/contents/Chapter%2018%20-%20%ED%95%A8%EC%88%98%ED%98%95%20%EA%B4%80%EC%A0%90%EC%9C%BC%EB%A1%9C%20%EC%83%9D%EA%B0%81%ED%95%98%EA%B8%B0.md)
 * [Chapter 19 - 함수형 프로그래밍 기법]()
 * [Chapter 20 - OOP와 FP의 조화 : 자바와 스칼라 비교]()
 * [Chapter 21 - 결론 그리고 자바의 미래]()
