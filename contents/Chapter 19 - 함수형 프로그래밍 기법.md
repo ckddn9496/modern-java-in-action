@@ -32,7 +32,7 @@
 
 함수형 프로그래밍의 중요한 특징으로는 패턴 매칭을 들 수 있다. 이는 정규표현식과 관련된 매칭과는 다르다. 여기서의 패턴 매칭은 한개 이상의 파라미터에 대한 멀티 매칭을 의미한다. 자바에서는 패턴 매칭 대신 if-then-else 구문을 중첩하여 구현할 수 있지만, 스칼라에서는 이미 패턴 매칭을 지원하고있다. 쉽게 표현하면 다수준(multilevel)의 switch 문이라고 설명할 수 있다. 아래 예제를 통해 패턴매칭이 무엇인지 이해할 수 있다.
 
-```java
+```scala
 def simplifyExpression(expr: Expr): Expr = expr match {
 	case BinOp("+", e, Number(0)) => e  // 0 더하기
 	case BinOp("*", e, Number(1)) => e  // 1 곱하기
